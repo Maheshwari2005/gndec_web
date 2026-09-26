@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maheshwari Rajendra · FPGA & Embedded Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f7fc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a2639;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .landing {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* header / hero */
+    .hero {
+      background: linear-gradient(135deg, #0a1a2f 0%, #1b3a5c 100%);
+      border-radius: 2rem;
+      padding: 2.8rem 2.8rem 2.8rem 3rem;
+      color: #fff;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 20px 35px -8px rgba(0, 20, 40, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100, 210, 255, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 255, 200, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .subhead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #b8d9ff;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      border-left: 4px solid #3fa7ff;
+      padding-left: 1rem;
+    }
+
+    .hero .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 2;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.4rem 1.1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e0f0ff;
+      letter-spacing: 0.01em;
+    }
+
+    /* grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 12px 30px -10px rgba(0, 20, 30, 0.1);
+      border: 1px solid #e9eef5;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 18px 35px -12px rgba(0, 40, 70, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-header .icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .card-header h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #0d2b45;
+      letter-spacing: -0.01em;
+      border-bottom: 3px solid #3fa7ff;
+      padding-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    /* project items */
+    .project-item {
+      margin-bottom: 1.7rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eef3f8;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #0d2b45;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .project-date {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #e8f2fe;
+      color: #0a5f9e;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: #2b4057;
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      background: #eef4fa;
+      color: #0a4c7a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+      letter-spacing: 0.01em;
+      border: 1px solid #d6e3f0;
+    }
+
+    /* certificates & languages table */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid #ecf2f9;
+    }
+
+    .info-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .info-table td {
+      padding: 0.75rem 0.2rem;
+      vertical-align: middle;
+    }
+
+    .info-table td:first-child {
+      font-weight: 500;
+      color: #0a2d4a;
+      width: 60%;
+    }
+
+    .info-table td:last-child {
+      color: #3a5670;
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .cert-badge {
+      background: #dff0ff;
+      color: #04558b;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+
+    /* footer / contact strip */
+    .footer-note {
+      background: #ffffffd9;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e9eef5;
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: #1f3e5c;
+    }
+
+    .footer-note .name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-note .name span {
+      color: #3fa7ff;
+    }
+
+    .footer-note .email {
+      font-weight: 400;
+      color: #2e5575;
+      background: #e6f0fa;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* responsiveness */
+    @media (max-width: 800px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero .subhead {
+        font-size: 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .project-title {
+        font-size: 0.98rem;
+      }
+
+      .info-table td {
+        padding: 0.6rem 0;
+        font-size: 0.82rem;
+      }
+
+      .footer-note {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* misc */
+    .text-muted {
+      color: #5d738b;
+    }
+
+    .strong-soft {
+      font-weight: 600;
+      color: #145a8a;
+    }
+
+    /* deco */
+    .chip-icon {
+      font-size: 1.3rem;
+      margin-right: 0.15rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing">
+    <!-- Hero section -->
+    <div class="hero">
+      <h1>Maheshwari Rajendra</h1>
+      <div class="subhead">FPGA · Embedded Systems · IoT · Biomedical Signal Processing</div>
+      <div class="badge-row">
+        <span class="badge">Spartan-3 FPGA</span>
+        <span class="badge">Verilog / RTL</span>
+        <span class="badge">ESP8266</span>
+        <span class="badge">Sensor Interfacing</span>
+        <span class="badge">Low-Power Design</span>
+      </div>
+    </div>
+
+    <!-- two column layout -->
+    <div class="grid-2">
+      <!-- Left column: Projects -->
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">⚙️</span>
+          <h2>Key Projects</h2>
+        </div>
+
+        <!-- Project 1 -->
+        <div class="project-item">
+          <div class="project-title">
+            FPGA-Based Low Power Processor for Medical Devices
+            <span class="project-date">05/2026 – 10/2026</span>
+          </div>
+          <div class="project-desc">
+            Developing an FPGA-based low-power processor for real-time biomedical monitoring using a Spartan-3 FPGA.
+            Integrating AD8232 ECG and MAX30102 pulse oximeter sensors. Implementing Verilog/RTL logic, UART communication,
+            and OLED interfacing for real-time vital-sign monitoring.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Spartan-3</span>
+            <span class="tag">AD8232</span>
+            <span class="tag">MAX30102</span>
+            <span class="tag">Verilog</span>
+            <span class="tag">UART</span>
+            <span class="tag">OLED</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+          <div class="project-title">
+            Water Conservation Monitoring System
+            <span class="project-date">09/2025 – 03/2026</span>
+          </div>
+          <div class="project-desc">
+            Smart water usage and level monitoring system. Integrated flow and water-level sensors for tracking water
+            consumption and availability. Applied embedded-system concepts for sensor interfacing, data monitoring,
+            and water conservation.
+          </div>
+          <div class="project-tags">
+            <span class="tag">Flow sensor</span>
+            <span class="tag">Water-level</span>
+            <span class="tag">Embedded C</span>
+            <span class="tag">Monitoring</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-item">
+          <div class="project-title">
+            Air Quality Monitoring System
+            <span class="project-date">IoT · ESP8266</span>
+          </div>
+          <div class="project-desc">
+            IoT-based environmental monitoring using ESP8266 NodeMCU and DHT11 sensors. Monitored temperature and
+            humidity data through sensor interfacing with the microcontroller. Implemented data acquisition and
+            real-time monitoring using embedded programming and IoT concepts.
+          </div>
+          <div class="project-tags">
+            <span class="tag">ESP8266</span>
+            <span class="tag">DHT11</span>
+            <span class="tag">IoT</span>
+            <span class="tag">NodeMCU</span>
+            <span class="tag">Real-time</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Certificates & Languages -->
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <!-- Certificates card -->
+        <div class="card">
+          <div class="card-header">
+            <span class="icon">📜</span>
+            <h2>Certificates</h2>
+          </div>
+          <table class="info-table">
+            <tr>
+              <td>CMOS Digital VLSI Design</td>
+              <td><span class="cert-badge">NPTEL · 2026</span></td>
+            </tr>
+            <tr>
+              <td>Embedded System Internship</td>
+              <td><span class="cert-badge">ACME · 2026</span></td>
+            </tr>
+            <tr>
+              <td>IoT & Electronics Course</td>
+              <td><span class="cert-badge">Infosys Springboard · 2026</span></td>
+            </tr>
+            <tr>
+              <td>Introduction to HTML</td>
+              <td><span class="cert-badge">2025</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Languages card -->
+        <div class="card">
+          <div class="card-header">
+            <span class="icon">🌐</span>
+            <h2>Languages</h2>
+          </div>
+          <table class="info-table">
+            <tr>
+              <td>English</td>
+              <td>Professional Communication</td>
+            </tr>
+            <tr>
+              <td>Kannada</td>
+              <td>Native language</td>
+            </tr>
+            <tr>
+              <td>Hindi</td>
+              <td>Conversational Communication</td>
+            </tr>
+          </table>
+          <div style="margin-top: 1.2rem; font-size: 0.82rem; color: #5d738b; border-top: 1px solid #e2ecf7; padding-top: 1rem;">
+            <span class="strong-soft">✦</span> Strong technical communication in English & Kannada
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer / Contact strip -->
+    <div class="footer-note">
+      <div class="name">
+        Maheshwari Rajendra <span>·</span> FPGA & Embedded Portfolio
+      </div>
+      <div class="email">
+        📧 maheshwari.rajendra@example.com
+      </div>
+    </div>
+  </div>
+</body>
+</html>
